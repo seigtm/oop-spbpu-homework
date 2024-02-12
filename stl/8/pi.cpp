@@ -2,7 +2,6 @@
 // STL. Lab #8.1.
 
 #include <algorithm>
-#include <cmath>
 #include <iostream>
 #include <iterator>
 #include <numbers>

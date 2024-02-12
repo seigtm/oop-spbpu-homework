@@ -56,9 +56,8 @@ int main() {
     setm::fill_random(datastructs, 10);
 
     std::cout << "Before sorting:\n";
-    for(const auto& datastruct : datastructs) {
+    for(const auto& datastruct : datastructs)
         std::cout << datastruct << '\n';
-    }
 
     std::sort(datastructs.begin(), datastructs.end(), [](const auto& a, const auto& b) {
         if(a.key1 != b.key1)
@@ -70,7 +69,6 @@ int main() {
     });
 
     std::cout << "\nAfter sorting:\n";
-    for(const auto& datastruct : datastructs) {
+    for(const auto& datastruct : datastructs)
         std::cout << datastruct << '\n';
-    }
 }

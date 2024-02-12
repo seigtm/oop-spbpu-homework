@@ -37,6 +37,6 @@ int main() {
         if(l.size() % 2 != 0)
             std::cout << *begin;
 
-        std::cout << "\n\n";
+        std::cout << '\n';
     }
 }

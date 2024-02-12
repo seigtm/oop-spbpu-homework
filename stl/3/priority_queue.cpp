@@ -100,18 +100,16 @@ int main() {
         { { "7"s }, { "8"s }, { "9"s } }
     };
     std::cout << "Queue size: " << pq.size() << '\n';
-    while(!pq.empty()) {
+    while(!pq.empty())
         std::cout << pq.get().name << ' ';
-    }
     std::cout << "\nQueue size: " << pq.size() << '\n';
 
     pq.put({ "10"s }, setm::priority_queue::priority::LOW);
     pq.put({ "11"s }, setm::priority_queue::priority::NORMAL);
     pq.put({ "12"s }, setm::priority_queue::priority::HIGH);
     std::cout << "\nQueue size: " << pq.size() << '\n';
-    while(!pq.empty()) {
+    while(!pq.empty())
         std::cout << pq.get().name << ' ';
-    }
     std::cout << "\nQueue size: " << pq.size() << '\n';
 
     pq.put({ "13"s }, setm::priority_queue::priority::LOW);
@@ -119,8 +117,7 @@ int main() {
     pq.put({ "15"s }, setm::priority_queue::priority::HIGH);
     std::cout << "\nQueue size: " << pq.size() << '\n';
     pq.accelerate();
-    while(!pq.empty()) {
+    while(!pq.empty())
         std::cout << pq.get().name << ' ';
-    }
     std::cout << "\nQueue size: " << pq.size() << '\n';
 }

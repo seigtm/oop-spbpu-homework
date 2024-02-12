@@ -8,40 +8,40 @@
 
 class factorial_iterator {
 public:
-    factorial_iterator(int start, int fact)
-        : current{ start }, factorial{ fact } {}
+    factorial_iterator(int number)
+        : n{ number } {}
 
     int operator*() const {
-        int result{ 1 };
-        for(int i{ 2 }; i <= current; ++i)
-            result *= i;
-        return result;
+        int factorial{ 1 };
+        for(int i{ 2 }; i <= n; ++i)
+            factorial *= i;
+        return factorial;
     }
 
     factorial_iterator& operator++() {
-        ++current;
+        ++n;
         return *this;
     }
 
     factorial_iterator operator++(int) {
-        factorial_iterator temp{ *this };
+        auto temp{ *this };
         ++(*this);
         return temp;
     }
 
     factorial_iterator& operator--() {
-        --current;
+        --n;
         return *this;
     }
 
     factorial_iterator operator--(int) {
-        factorial_iterator temp{ *this };
+        auto temp{ *this };
         --(*this);
         return temp;
     }
 
     bool operator==(const factorial_iterator& other) const {
-        return current == other.current && factorial == other.factorial;
+        return n == other.n;
     }
 
     bool operator!=(const factorial_iterator& other) const {
@@ -49,8 +49,7 @@ public:
     }
 
 private:
-    int current;
-    int factorial;
+    int n;
 };
 
 class factorial_container {
@@ -58,11 +57,11 @@ public:
     factorial_container() = default;
 
     factorial_iterator begin() const {
-        return factorial_iterator{ 1, 1 };
+        return factorial_iterator{ 1 };
     }
 
     factorial_iterator end() const {
-        return factorial_iterator{ 11, 1 };
+        return factorial_iterator{ 11 };
     }
 };
 
@@ -72,10 +71,8 @@ int main() {
     std::vector<int> result;
     std::copy(container.begin(), container.end(), std::back_inserter(result));
 
-    // Вывод результатов
     std::cout << "Factorials from 1! to 10!: ";
-    for(int factorial : result) {
+    for(auto factorial : result)
         std::cout << factorial << ' ';
-    }
     std::cout << '\n';
 }

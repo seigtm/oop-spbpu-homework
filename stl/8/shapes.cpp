@@ -69,8 +69,8 @@ public:
 };
 
 template<typename Container>
-void draw_shapes(const Container& shapes, std::string_view message) {
-    std::cout << message << ":\n";
+void draw_shapes(const Container& shapes, std::string_view message = "") {
+    std::cout << message;
     for(const auto& shape : shapes)
         shape->draw();
     std::cout << '\n';
@@ -92,7 +92,7 @@ static setm::shape_type generate_random_shape_type() noexcept {
     return static_cast<setm::shape_type>(dist(gen));
 }
 
-// Generates a random shape
+// Generates a random shape.
 shape* generate_random_shape() {
     const auto x{ generate_random_double(-100.0, 100.0) };
     const auto y{ generate_random_double(-100.0, 100.0) };
@@ -100,13 +100,13 @@ shape* generate_random_shape() {
 
     switch(type) {
         case shape_type::CIRCLE:
-            return new circle(x, y);
+            return new circle{ x, y };
         case shape_type::TRIANGLE:
-            return new triangle(x, y);
+            return new triangle{ x, y };
         case shape_type::SQUARE:
-            return new square(x, y);
+            return new square{ x, y };
         default:
-            throw std::runtime_error("Unknown shape type.");
+            std::unreachable();
     }
 }
 
@@ -117,17 +117,17 @@ int main() {
     std::generate(std::begin(shapes), std::end(shapes), [] { return setm::generate_random_shape(); });
 
     // Draw all shapes.
-    setm::draw_shapes(shapes, std::format("All {} shapes", std::size(shapes)));
+    setm::draw_shapes(shapes, std::format("All {} shapes:\n", std::size(shapes)));
 
     // Sort and draw shapes.
     shapes.sort([](const auto& a, const auto& b) { return a->is_more_left(*b); });
-    setm::draw_shapes(shapes, "Left to right");
+    setm::draw_shapes(shapes, "Left to right:\n");
     shapes.sort([](const auto& a, const auto& b) { return b->is_more_left(*a); });
-    setm::draw_shapes(shapes, "Right to left");
+    setm::draw_shapes(shapes, "Right to left:\n");
     shapes.sort([](const auto& a, const auto& b) { return a->is_upper(*b); });
-    setm::draw_shapes(shapes, "Top to bottom");
+    setm::draw_shapes(shapes, "Top to bottom:\n");
     shapes.sort([](const auto& a, const auto& b) { return b->is_upper(*a); });
-    setm::draw_shapes(shapes, "Bottom to top");
+    setm::draw_shapes(shapes, "Bottom to top:\n");
 
     // Cleanup.
     for(auto shape : shapes)
