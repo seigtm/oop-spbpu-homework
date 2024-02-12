@@ -17,6 +17,8 @@
 // 4. ['.', ',', '!', '?', ':', ';'] -> ['.', ',', '!', '?', ':', ';']' '
 // 5. [A-Za-z0-9]{11+} -> "Vau!!!"
 
+namespace setm {
+
 namespace constants {
 constexpr std::size_t MAX_WORD_LENGTH{ 10 };
 constexpr std::size_t MAX_LINE_LENGTH{ 40 };
@@ -109,6 +111,7 @@ std::vector<std::string> transform_into_lines(const std::string& text) {
     return lines;
 }
 
+}  // namespace setm
 
 int main(int argc, char** argv) {
     if(argc != 2) {
@@ -123,16 +126,14 @@ int main(int argc, char** argv) {
     }
     std::string text{ std::istreambuf_iterator<char>(file), {} };
 
-    remove_whitespaces(text);
-    remove_consecutive_whitespaces(text);
-    insert_space_after_punctuation(text);
-    remove_space_before_punctuation(text);
-    replace_long_words(text);
-    std::vector lines{ transform_into_lines(text) };
+    setm::remove_whitespaces(text);
+    setm::remove_consecutive_whitespaces(text);
+    setm::insert_space_after_punctuation(text);
+    setm::remove_space_before_punctuation(text);
+    setm::replace_long_words(text);
+    const std::vector lines{ setm::transform_into_lines(text) };
     for(const auto& line : lines) {
-        assert(line.length() <= constants::MAX_LINE_LENGTH);
+        assert(line.length() <= setm::constants::MAX_LINE_LENGTH);
         std::cout << line << '\n';
     }
-
-    return EXIT_SUCCESS;
 }

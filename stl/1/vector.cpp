@@ -141,8 +141,8 @@ int main(int argc, char** argv) {
     ifs.seekg(0);
     ifs.read(c_arr, size);
 
-    std::vector<char> vec_from_c_arr{ c_arr, c_arr + size };
-    // Alternative: vec_from_c_arr.assign(c_arr, c_arr + size);
+    std::vector<char> vec_from_c_arr;
+    vec_from_c_arr.assign(c_arr, c_arr + size);  // Alternative: std::vector<char> vec_from_c_arr{ c_arr, c_arr + size }
     delete[] c_arr;
 
     std::cout << "Vector from C-style array:\n";
