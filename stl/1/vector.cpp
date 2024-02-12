@@ -141,9 +141,13 @@ int main(int argc, char** argv) {
     ifs.seekg(0);
     ifs.read(c_arr, size);
 
-    std::vector<char> vec_from_c_arr;  // std::vector<char> vec{ c_arr, c_arr + size };
-    vec_from_c_arr.assign(c_arr, c_arr + size);
+    std::vector<char> vec_from_c_arr{ c_arr, c_arr + size };
+    // Alternative: vec_from_c_arr.assign(c_arr, c_arr + size);
     delete[] c_arr;
+
+    std::cout << "Vector from C-style array:\n";
+    std::copy(std::begin(vec_from_c_arr), std::end(vec_from_c_arr), std::ostream_iterator<char>{ std::cout });
+    std::cout << '\n';
 
     // 5. Read the numbers from standard input and store them in the vector. Zero terminates the input.
     //    5.1. If the last number is 1, remove all numbers that are divisible by 2.
