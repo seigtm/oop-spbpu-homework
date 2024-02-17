@@ -242,7 +242,7 @@ I won't provide the logic for these labs as they are essentially step-by-step ex
 
 However, I have made some bug fixes along the way. Below, I will list each lab title along with its corresponding path in the repository.
 
-All laboratory assignments are compiled using a single Visual Studio Solution file: [`./mfc/mfc.sln`](https://github.com/seigtm/oop-spbpu-homework/tree/master/mfc/mfc.sln)`.
+All laboratory assignments are compiled using a single Visual Studio Solution file: [`./mfc/mfc.sln`](https://github.com/seigtm/oop-spbpu-homework/tree/master/mfc/mfc.sln).
 
 ### Lab 1: Your First Visual C++ Application
 
