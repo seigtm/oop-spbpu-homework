@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PaintORama", "8\PaintORama\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FourUp", "9\FourUp\FourUp.vcxproj", "{85E0E49D-3095-49BD-AF87-61CCA6D2A847}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BmpOpen", "10\BmpOpen\BmpOpen.vcxproj", "{B1F7A36B-051C-48BD-A015-E34BDDFC101C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -101,6 +103,14 @@ Global
 		{85E0E49D-3095-49BD-AF87-61CCA6D2A847}.Release|x64.Build.0 = Release|x64
 		{85E0E49D-3095-49BD-AF87-61CCA6D2A847}.Release|x86.ActiveCfg = Release|Win32
 		{85E0E49D-3095-49BD-AF87-61CCA6D2A847}.Release|x86.Build.0 = Release|Win32
+		{B1F7A36B-051C-48BD-A015-E34BDDFC101C}.Debug|x64.ActiveCfg = Debug|x64
+		{B1F7A36B-051C-48BD-A015-E34BDDFC101C}.Debug|x64.Build.0 = Debug|x64
+		{B1F7A36B-051C-48BD-A015-E34BDDFC101C}.Debug|x86.ActiveCfg = Debug|Win32
+		{B1F7A36B-051C-48BD-A015-E34BDDFC101C}.Debug|x86.Build.0 = Debug|Win32
+		{B1F7A36B-051C-48BD-A015-E34BDDFC101C}.Release|x64.ActiveCfg = Release|x64
+		{B1F7A36B-051C-48BD-A015-E34BDDFC101C}.Release|x64.Build.0 = Release|x64
+		{B1F7A36B-051C-48BD-A015-E34BDDFC101C}.Release|x86.ActiveCfg = Release|Win32
+		{B1F7A36B-051C-48BD-A015-E34BDDFC101C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
