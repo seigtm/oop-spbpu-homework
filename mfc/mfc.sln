@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FourUp", "9\FourUp\FourUp.v
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BmpOpen", "10\BmpOpen\BmpOpen.vcxproj", "{B1F7A36B-051C-48BD-A015-E34BDDFC101C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tasks", "11\Tasks\Tasks.vcxproj", "{19B2301B-BF6B-4F51-BFC9-8CED4EB9486E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -111,6 +113,14 @@ Global
 		{B1F7A36B-051C-48BD-A015-E34BDDFC101C}.Release|x64.Build.0 = Release|x64
 		{B1F7A36B-051C-48BD-A015-E34BDDFC101C}.Release|x86.ActiveCfg = Release|Win32
 		{B1F7A36B-051C-48BD-A015-E34BDDFC101C}.Release|x86.Build.0 = Release|Win32
+		{19B2301B-BF6B-4F51-BFC9-8CED4EB9486E}.Debug|x64.ActiveCfg = Debug|x64
+		{19B2301B-BF6B-4F51-BFC9-8CED4EB9486E}.Debug|x64.Build.0 = Debug|x64
+		{19B2301B-BF6B-4F51-BFC9-8CED4EB9486E}.Debug|x86.ActiveCfg = Debug|Win32
+		{19B2301B-BF6B-4F51-BFC9-8CED4EB9486E}.Debug|x86.Build.0 = Debug|Win32
+		{19B2301B-BF6B-4F51-BFC9-8CED4EB9486E}.Release|x64.ActiveCfg = Release|x64
+		{19B2301B-BF6B-4F51-BFC9-8CED4EB9486E}.Release|x64.Build.0 = Release|x64
+		{19B2301B-BF6B-4F51-BFC9-8CED4EB9486E}.Release|x86.ActiveCfg = Release|Win32
+		{19B2301B-BF6B-4F51-BFC9-8CED4EB9486E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
