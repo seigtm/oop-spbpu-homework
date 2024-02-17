@@ -30,4 +30,14 @@ protected:
     afx_msg void OnPaint();
     afx_msg HCURSOR OnQueryDragIcon();
     DECLARE_MESSAGE_MAP()
+public:
+    CEdit m_TestEdit;
+    BOOL m_EnableCheck;
+    BOOL m_VisibleCheck;
+    afx_msg void OnExitButton();
+    afx_msg void OnTestButton();
+    afx_msg void OnClearButton();
+    afx_msg void OnVisibleCheck();
+    afx_msg void OnChangeTestEdit();
+    afx_msg void OnEnabledCheck();
 };

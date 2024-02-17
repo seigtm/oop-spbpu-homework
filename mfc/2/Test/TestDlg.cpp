@@ -25,7 +25,7 @@ public:
 #endif
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);  // поддержка DDX/DDV
+    void DoDataExchange(CDataExchange* pDX) final;  // поддержка DDX/DDV
 
     // Реализация
 protected:
@@ -48,18 +48,27 @@ END_MESSAGE_MAP()
 
 
 CTestDlg::CTestDlg(CWnd* pParent /*=nullptr*/)
-    : CDialogEx(IDD_TEST_DIALOG, pParent) {
+    : CDialogEx(IDD_TEST_DIALOG, pParent), m_EnableCheck(FALSE), m_VisibleCheck(FALSE) {
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
 void CTestDlg::DoDataExchange(CDataExchange* pDX) {
     CDialogEx::DoDataExchange(pDX);
+    DDX_Control(pDX, IDC_TEST_EDIT, m_TestEdit);
+    DDX_Check(pDX, IDC_ENABLED_CHECK, m_EnableCheck);
+    DDX_Check(pDX, IDC_VISIBLE_CHECK, m_VisibleCheck);
 }
 
 BEGIN_MESSAGE_MAP(CTestDlg, CDialogEx)
 ON_WM_SYSCOMMAND()
 ON_WM_PAINT()
 ON_WM_QUERYDRAGICON()
+ON_BN_CLICKED(IDC_EXIT_BUTTON, &CTestDlg::OnExitButton)
+ON_BN_CLICKED(IDC_TEST_BUTTON, &CTestDlg::OnTestButton)
+ON_BN_CLICKED(IDC_CLEAR_BUTTON, &CTestDlg::OnClearButton)
+ON_BN_CLICKED(IDC_VISIBLE_CHECK, &CTestDlg::OnVisibleCheck)
+ON_EN_CHANGE(IDC_TEST_EDIT, &CTestDlg::OnChangeTestEdit)
+ON_BN_CLICKED(IDC_ENABLED_CHECK, &CTestDlg::OnEnabledCheck)
 END_MESSAGE_MAP()
 
 
@@ -91,7 +100,12 @@ BOOL CTestDlg::OnInitDialog() {
     SetIcon(m_hIcon, TRUE);   // Крупный значок
     SetIcon(m_hIcon, FALSE);  // Мелкий значок
 
-    // TODO: добавьте дополнительную инициализацию
+    // Устаноить переменную флажка VisibleCheck и EnabledCheck в состояние
+    // TRUE
+    m_VisibleCheck = TRUE;
+    m_EnableCheck = TRUE;
+    // Обновить экран
+    UpdateData(FALSE);
 
     return TRUE;  // возврат значения TRUE, если фокус не передан элементу управления
 }
@@ -133,5 +147,61 @@ void CTestDlg::OnPaint() {
 // Система вызывает эту функцию для получения отображения курсора при перемещении
 //  свернутого окна.
 HCURSOR CTestDlg::OnQueryDragIcon() {
-    return static_cast<HCURSOR>(m_hIcon);
+    return m_hIcon;
+}
+
+
+void CTestDlg::OnExitButton() {
+    OnOK();
+}
+
+
+void CTestDlg::OnTestButton() {
+    m_TestEdit.SetWindowText(_T("This is a Test"));
+    UpdateData(FALSE);
+}
+
+
+void CTestDlg::OnClearButton() {
+    m_TestEdit.SetWindowText(_T(""));
+    UpdateData(FALSE);
+}
+
+
+void CTestDlg::OnVisibleCheck() {
+    UpdateData(TRUE);
+    GetDlgItem(IDC_TEST_EDIT)->ShowWindow(m_VisibleCheck ? SW_SHOW : SW_HIDE);
+}
+
+
+void CTestDlg::OnChangeTestEdit() {
+    UpdateData(TRUE);
+
+    CString UpperValue{};
+    m_TestEdit.GetWindowText(UpperValue);
+    UpperValue.MakeUpper();
+
+    bool shouldClearText{ false };
+
+    if(UpperValue == _T("PAINT")) {
+        ::ShellExecute(nullptr, _T("open"), _T("pbrush.exe"), nullptr, nullptr, SW_SHOWNORMAL);
+        shouldClearText = true;
+    } else if(UpperValue == _T("CALCULATOR")) {
+        ::ShellExecute(nullptr, _T("open"), _T("calc.exe"), nullptr, nullptr, SW_SHOWNORMAL);
+        shouldClearText = true;
+    } else if(UpperValue == _T("BEEP")) {
+        ::MessageBeep(static_cast<UINT>(-2));
+        shouldClearText = true;
+    }
+
+    if(shouldClearText) {
+        m_TestEdit.SetWindowText(_T(""));
+        UpdateData(FALSE);
+    }
+}
+
+
+void CTestDlg::OnEnabledCheck() {
+    UpdateData(TRUE);
+    GetDlgItem(IDC_TEST_EDIT)->EnableWindow(m_EnableCheck ? SW_SHOW : SW_HIDE);
 }
