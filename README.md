@@ -235,3 +235,55 @@ own lab assignments, feel free to submit a pull request.
 - **Execution**:
   - Generated a list of random shapes.
   - Drew all shapes and then sorted and drew them based on their position from left to right, right to left, top to bottom, and bottom to top.
+
+## MFC Labs Overview
+
+I won't provide the logic for these labs as they are essentially step-by-step exercises from the teacher's manual.
+
+However, I have made some bug fixes along the way. Below, I will list each lab title along with its corresponding path in the repository.
+
+All laboratory assignments are compiled using a single Visual Studio Solution file: [`./mfc/mfc.sln`](https://github.com/seigtm/oop-spbpu-homework/tree/master/mfc/mfc.sln)`.
+
+### Lab 1: Your First Visual C++ Application
+
+**Path**: [`./mfc/1/Hello/`](https://github.com/seigtm/oop-spbpu-homework/tree/master/mfc/1/Hello)
+
+### Lab 2: Controls, Properties, and Events
+
+**Path**: [`./mfc/2/Test/`](https://github.com/seigtm/oop-spbpu-homework/tree/master/mfc/2/Test)
+
+### Lab 3: Working with the Mouse
+
+**Path**: [`./mfc/3/Draw/`](https://github.com/seigtm/oop-spbpu-homework/tree/master/mfc/3/Draw)
+
+### Lab 4: Working with the Keyboard
+
+**Path**: [`./mfc/4/MyKey/`](https://github.com/seigtm/oop-spbpu-homework/tree/master/mfc/4/MyKey)
+
+### Lab 5: Working with Menus
+
+**Path**: [`./mfc/5/Speed/`](https://github.com/seigtm/oop-spbpu-homework/tree/master/mfc/5/Speed)
+
+### Lab 6: Predefined Dialog Boxes
+
+**Path**: [`./mfc/6/MyMsg/`](https://github.com/seigtm/oop-spbpu-homework/tree/master/mfc/6/MyMsg)
+
+### Lab 7: Drawing Shapes
+
+**Path**: [`./mfc/7/Graph/`](https://github.com/seigtm/oop-spbpu-homework/tree/master/mfc/7/Graph)
+
+### Lab 8: Graphics Editor
+
+**Path**: [`./mfc/8/PaintORama/`](https://github.com/seigtm/oop-spbpu-homework/tree/master/mfc/8/PaintORama)
+
+### Lab 9: "Deal Cards" Game
+
+**Path**: [`./mfc/9/FourUp/`](https://github.com/seigtm/oop-spbpu-homework/tree/master/mfc/9/FourUp)
+
+### Lab 10: Opening BMP Files
+
+**Path**: [`./mfc/10/BmpOpen/`](https://github.com/seigtm/oop-spbpu-homework/tree/master/mfc/10/BmpOpen)
+
+### Lab 11: Running the Program in the Background
+
+**Path**: [`./mfc/11/Tasks/`](https://github.com/seigtm/oop-spbpu-homework/tree/master/mfc/11/Tasks)
